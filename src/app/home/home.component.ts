@@ -11,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponentt implements OnInit {
+export class HomeComponent implements OnInit {
   @ViewChild('myModal') model: ElementRef | undefined;
   studentObj: Student = new Student();
   studentList: Student[] = [];

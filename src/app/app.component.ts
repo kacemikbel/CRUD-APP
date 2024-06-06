@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   studentList: Student[] = [];
 
   ngOnInit(): void {
-    const localData = localStorage.getItem("angular17crud");
+    const localData = localStorage.getItem("crudapp");
     if(localData != null) {
       this.studentList = JSON.parse(localData)
     }
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     if(isDelet) {
       const currentRecord =  this.studentList.findIndex(m=> m.id === this.studentObj.id);
       this.studentList.splice(currentRecord,1);
-      localStorage.setItem('angular17crud', JSON.stringify(this.studentList));
+      localStorage.setItem('crudapp', JSON.stringify(this.studentList));
     }
   }
   onEdit(item: Student) {
@@ -57,25 +57,25 @@ export class AppComponent implements OnInit {
         currentRecord.address =  this.studentObj.address;
         currentRecord.mobileNo =  this.studentObj.mobileNo;
       };
-      localStorage.setItem('angular17crud', JSON.stringify(this.studentList));
+      localStorage.setItem('crudapp', JSON.stringify(this.studentList));
       this.closeModel()
   }
   saveStudent() {
     debugger;
-    const isLocalPresent = localStorage.getItem("angular17crud");
+    const isLocalPresent = localStorage.getItem("crudapp");
     if (isLocalPresent != null) {
       
       const oldArray = JSON.parse(isLocalPresent);
       this.studentObj.id = oldArray.length + 1;
       oldArray.push(this.studentObj);
       this.studentList = oldArray;
-      localStorage.setItem('angular17crud', JSON.stringify(oldArray));
+      localStorage.setItem('crudapp', JSON.stringify(oldArray));
     } else {
       const newArr = [];
       newArr.push(this.studentObj);
       this.studentObj.id = 1;
       this.studentList = newArr;
-      localStorage.setItem('angular17crud', JSON.stringify(newArr));
+      localStorage.setItem('crudapp', JSON.stringify(newArr));
     }
     this.closeModel()
   }

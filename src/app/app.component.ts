@@ -7,6 +7,7 @@ import { RegisterComponent } from './page/register/register.component';
 import { LoginComponent } from './page/login/login.component';
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
